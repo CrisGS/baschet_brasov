@@ -41,6 +41,10 @@ async function initMap() {
         title: markerData.name,
         content: pinImg,
       });
+
+      marker.setAttribute('data-type', markerData.courtType);
+      marker.setAttribute('data-state', markerData.renovationStatus);
+
       return marker;
     });
   } catch (error) {
@@ -49,21 +53,39 @@ async function initMap() {
 }
 
 const selectTeren = document.getElementById("selectTeren");
+const selectType = document.querySelector("#selectType");
+const selectState = document.querySelector("#selectState");
+const form = document.querySelector("form");
 
-selectTeren.addEventListener("input", (e) => {
-  const selectedValue = e.target.value;
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const selectedValue = selectTeren.value;
 
-  // Hide all markers
   createdMarkers.forEach((marker) => {
     marker.setMap(null);
   });
 
   // Show only the selected marker
-  const selectedMarker = createdMarkers.find((marker) => marker.title === selectedValue);
+  const selectedMarker = createdMarkers.find((marker) => {
+    if (marker.title === selectedValue) {
+      return true;
+    }
+
+    if (marker.getAttribute('data-type') === selectType.value) {
+      return true;
+    }
+
+    if (marker.getAttribute('data-state') === selectState.value) {
+      return true;
+    }
+  });
+  console.log(selectedMarker);
   if (selectedMarker) {
     map.setCenter(selectedMarker.position); // Center the map on the selected marker
     selectedMarker.setMap(map); // Show the selected marker on the map
   }
+  console.log("Tip teren:", selectedMarker.getAttribute('data-type'));
+  console.log("Stare teren:", selectedMarker.getAttribute('data-state'));
 });
 
 initMap();
