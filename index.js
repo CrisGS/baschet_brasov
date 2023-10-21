@@ -65,7 +65,6 @@ form.addEventListener("submit", (e) => {
     marker.setMap(null);
   });
 
-  // Show only the selected marker
   const selectedMarker = createdMarkers.find((marker) => {
     if (marker.title === selectedValue) {
       return true;
