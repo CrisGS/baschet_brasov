@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+ @license
+ Copyright 2019 Google LLC. All Rights Reserved.
+ SPDX-License-Identifier: Apache-2.0
+-->
+<html>
+  <head>
+    <title>Add Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <!-- Dropdown test pana ne legam cu datele reale -->
+    <select id="selectTeren">
+      <option value="">Selectează un teren</option>
+      <option value="Sub Tampa/Vointa">Sub Tampa/Vointa</option>
+      <option value="Fartec">Fartec</option>
+      <option value="Livada/Schaeffler">Livada/Schaeffler</option>
+      <option value="Triaj">Triaj</option>
+      <option value="Agricultorilor">Agricultorilor</option>
+      <option value="Stefan cel Mare">Stefan cel Mare</option>
+      <option value="Aluminiului">Aluminiului</option>
+      <option value="Popa Sapca">Popa Sapca</option>
+    </select>
+    <select id="selectTeren">
+      <option value="Selecteaza">Selecteaza</option>
+      <option value="INDOOR">Inauntru</option>
+      <option value="OUTDOOR">Afara</option>
+    </select>
+    <select id="selectTeren">
+      <option value="Selecteaza">Selecteaza</option>
+      <option value="RENOVATED">Renovat</option>
+      <option value="UNDER_RENOVATION">In renovare</option>
+      <option value="NOT_RENOVATED">Nerenovat</option>
+    </select>
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <!-- prettier-ignore -->
+    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+        ({key: "AIzaSyCGJWfmi8sO8DcH6BfTDefE7HA_91B2Nog", v: "beta"});</script>
+  </body>
+</html>
