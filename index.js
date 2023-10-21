@@ -30,7 +30,6 @@ async function initMap() {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     markers = await response.json();
-    console.log(markers);
     // Create markers for each item in the 'markers' array
     createdMarkers = markers.map((markerData) => {
       const pinImg = pinImgTemplate.cloneNode(true);
@@ -83,8 +82,6 @@ form.addEventListener("submit", (e) => {
     map.setCenter(selectedMarker.position); // Center the map on the selected marker
     selectedMarker.setMap(map); // Show the selected marker on the map
   }
-  console.log("Tip teren:", selectedMarker.getAttribute('data-type'));
-  console.log("Stare teren:", selectedMarker.getAttribute('data-state'));
 });
 
 initMap();
