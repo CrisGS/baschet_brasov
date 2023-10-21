@@ -3,3 +3,23 @@
     width: 50%;
     margin: auto;
 }
+
+form {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    flex-wrap: wrap;
+}
+
+select {
+    margin: 5px;
+    width: 30%;
+}
+
+#submitButton {
+    margin: 5px;
+    width: 50px;
+    height: 20px;
+}
