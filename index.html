@@ -13,28 +13,31 @@
   </head>
   <body>
     <!-- Dropdown test pana ne legam cu datele reale -->
-    <select id="selectTeren">
-      <option value="">Selectează un teren</option>
-      <option value="Sub Tampa/Vointa">Sub Tampa/Vointa</option>
-      <option value="Fartec">Fartec</option>
-      <option value="Livada/Schaeffler">Livada/Schaeffler</option>
-      <option value="Triaj">Triaj</option>
-      <option value="Agricultorilor">Agricultorilor</option>
-      <option value="Stefan cel Mare">Stefan cel Mare</option>
-      <option value="Aluminiului">Aluminiului</option>
-      <option value="Popa Sapca">Popa Sapca</option>
-    </select>
-    <select id="selectTeren">
-      <option value="Selecteaza">Selecteaza</option>
-      <option value="INDOOR">Inauntru</option>
-      <option value="OUTDOOR">Afara</option>
-    </select>
-    <select id="selectTeren">
-      <option value="Selecteaza">Selecteaza</option>
-      <option value="RENOVATED">Renovat</option>
-      <option value="UNDER_RENOVATION">In renovare</option>
-      <option value="NOT_RENOVATED">Nerenovat</option>
-    </select>
+    <form>
+      <select id="selectTeren" required>
+        <option value=""  selected>Selectează un teren</option>
+        <option value="Sub Tampa/Vointa">Sub Tampa/Vointa</option>
+        <option value="Fartec">Fartec</option>
+        <option value="Livada/Schaeffler">Livada/Schaeffler</option>
+        <option value="Triaj">Triaj</option>
+        <option value="Agricultorilor">Agricultorilor</option>
+        <option value="Stefan cel Mare">Stefan cel Mare</option>
+        <option value="Aluminiului">Aluminiului</option>
+        <option value="Popa Sapca">Popa Sapca</option>
+      </select>
+      <select id="selectType">
+        <option value="" selected>Selecteaza tip teren</option>
+        <option value="INDOOR">Inauntru</option>
+        <option value="OUTDOOR">Afara</option>
+      </select>
+      <select id="selectState">
+        <option value="" selected>Selecteaza stare teren</option>
+        <option value="RENOVATED">Renovat</option>
+        <option value="UNDER_RENOVATION">In renovare</option>
+        <option value="NOT_RENOVATED">Nerenovat</option>
+      </select>
+      <button type="submit" id="submitButton">Submit</button>
+    </form>
     <h3>My Google Maps Demo</h3>
     <!--The div element for the map -->
     <div id="map"></div>
