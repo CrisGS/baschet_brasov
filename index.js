@@ -40,7 +40,6 @@ async function initMap() {
         title: markerData.name,
         content: pinImg,
       });
-
       marker.setAttribute('data-type', markerData.courtType);
       marker.setAttribute('data-state', markerData.renovationStatus);
 
@@ -59,28 +58,29 @@ const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const selectedValue = selectTeren.value;
+  const selectedType = selectType.value;
+  const selectedState = selectState.value;
 
   createdMarkers.forEach((marker) => {
     marker.setMap(null);
   });
 
-  const selectedMarker = createdMarkers.find((marker) => {
-    if (marker.title === selectedValue) {
-      return true;
-    }
-
-    if (marker.getAttribute('data-type') === selectType.value) {
-      return true;
-    }
-
-    if (marker.getAttribute('data-state') === selectState.value) {
-      return true;
-    }
+  const filteredMarkers = createdMarkers.filter((marker) => {
+    return (
+      (selectedValue === "" || marker.title === selectedValue) &&
+      (selectedType === "" || marker.getAttribute('data-type') === selectedType) &&
+      (selectedState === "" || marker.getAttribute('data-state') === selectedState)
+    );
   });
-  console.log(selectedMarker);
-  if (selectedMarker) {
-    map.setCenter(selectedMarker.position); // Center the map on the selected marker
-    selectedMarker.setMap(map); // Show the selected marker on the map
+
+  if (filteredMarkers.length > 0) {
+    // Center the map on the first matching marker
+    const firstMatchingMarker = filteredMarkers[0];
+    map.setCenter(firstMatchingMarker.position);
+    // Afișează toți marcatorii care corespund selecțiilor
+    filteredMarkers.forEach((marker) => {
+      marker.setMap(map);
+    });
   }
 });
 
